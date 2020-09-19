@@ -1,8 +1,10 @@
 name: 部署文档
+
 on:
-  push:	
-    branches:	
+  push:
+    branches:
       - master
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,6 +19,8 @@ jobs:
 
       - name: 构建文档
         run: yarn && yarn build
+      - name: 写入域名信息
+        run: echo "wikimc.yunqiaold.com" > .vuepress/dist/CNAME
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@releases/v3
