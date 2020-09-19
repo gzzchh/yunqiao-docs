@@ -1,6 +1,8 @@
 name: 部署文档
 on:
-  push:
+  push:	
+    branches:	
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
