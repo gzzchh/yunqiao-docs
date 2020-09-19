@@ -7,6 +7,10 @@ module.exports = {
 	markdown: {
 		lineNumbers: true,
 	},
+	extraWatchFiles: [
+		"./nav.js", // 使用相对路径
+		"./sidebar.js", // 使用绝对路径
+	],
 	themeConfig: {
 		nav: require("./nav"),
 		sidebar: require("./sidebar"),
