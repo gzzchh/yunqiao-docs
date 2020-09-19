@@ -1,0 +1,24 @@
+name: 部署文档
+on:
+  push:
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
+
+      - name: 准备 NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: 构建文档
+        run: yarn && yarn build
+
+      - name: 部署文档
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .vuepress/dist
