@@ -19,6 +19,7 @@ jobs:
 
       - name: 构建文档
         run: yarn && yarn docs:build
+        
       - name: 写入域名信息
         run: echo "wikimc.yunqiaold.com" > ./dist/CNAME
 
